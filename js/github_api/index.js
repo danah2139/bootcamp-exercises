@@ -10,6 +10,9 @@ let githubUserName = '';
 async function getData(githubUserName) {
 	try {
 		const response = await fetch(baseEndpoint + githubUserName);
+		if (response.status !== 200) {
+			throw 'not found';
+		}
 		const data = await response.json();
 		displayCard(data);
 	} catch (e) {
