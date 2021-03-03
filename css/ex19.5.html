@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19.5</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .loader{
+            display: flex;
+            width: 100px;
+            height: 100px;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+        .ball{
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+            
+        }
+
+        .b1{
+            animation-name: animation1;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-delay: 0;
+        }
+        .b2{
+            animation-name: animation1;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-delay: 0.2s;
+        }
+        .b3{
+            animation-name: animation1;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-delay: 0.4s;
+
+        }
+        @keyframes animation1 {
+            0% , 100%{ 
+                background-color: gray;
+            }
+
+            50%{
+                background-color: green;
+            }
+        }
+        
+        .b4{
+            animation-name: animation2;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-delay: 0;
+            transition: all 0.5s; 
+
+        }
+        .b5{
+            animation-name: animation2;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-delay: 0.2s;
+            transition: all 0.5s; 
+
+        }
+        .b6{
+            animation-name: animation2;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 1s;
+            animation-delay: 0.4s;
+            transition: all 0.5s; 
+        }
+        @keyframes animation2 {
+            0% , 100%{ 
+                background-color: gray;
+                transform: translateY(0); 
+            }
+
+            50%{
+                background-color: green;
+                transform: translateY(-25px); 
+            }
+        }
+        .spinner{
+            border-radius:50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border: 4px solid gray;
+            border-top: 4px solid green;
+            animation: animation3 1s linear infinite;
+
+        }
+        @keyframes animation3 {
+            0% { 
+                transform: rotate(0); 
+            }
+
+            100% {
+                transform: rotate(360deg); 
+            }
+        }
+        .spinner1{
+            border-radius:50%;
+            width: 100px;
+            height: 100px;
+            /* border: 16px solid gray; */
+            border-top: 3px solid green;
+            border-left: 3px solid transparent;
+            animation: animation3 1s linear infinite;
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="ball b1"></div>
+        <div class="ball b2"></div>
+        <div class="ball b3"></div>
+    </div>
+    <div class="loader">
+        <div class="ball b4"></div>
+        <div class="ball b5"></div>
+        <div class="ball b6"></div>
+    </div>
+    <div class="spinner"></div>
+    <div class="spinner1"></div>
+
+    
+</body>
+</html>

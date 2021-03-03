@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17.5</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        div>div{
+            width: 350px;
+            height: 170px;
+            
+        }
+        a[data-tooltip]{
+            position: relative;
+            text-decoration: none;
+        }
+
+        a[data-tooltip]:hover::after{
+            content :attr(data-tooltip);
+            position: absolute;
+            top: -24px;
+            left: -16px;
+            padding: 3px  5px;
+            color: red;
+            border-radius: 20px;
+            background-color: bisque;
+        }
+        a[data-tooltip]:hover::before{
+            content: "";
+            position: absolute;
+            top: -4px;
+            border-left: 5px solid transparent;
+	        border-right: 5px solid transparent;
+	        border-top: 7px solid bisque;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="p1">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Dolore aliquid non <a href="#" data-tooltip="lorem">bjbj</a> nam possimus quaerat praesentium qui nihil! Sunt tempore ipsam quidem ullam nulla sapiente doloremque quisquam, voluptates tempora perferendis animi reprehenderit in porro alias. Recusandae quisquam ea consequatur 
+            illo corporis ab consectetur totam sit! Nam ab vitae incidunt explicabo accusantium?</div>
+        <div id="p2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            A aperiam officia, consequatur laborum adipisci ea. Consequatur <a href="#" data-tooltip="info njnk"> bbbjjn</a> mollitia incidunt rerum sint impedit veniam cumque delectus, sequi ipsum vel vitae unde error quo excepturi, odio corrupti voluptatum debitis facere consectetur suscipit rem ut? Voluptatibus, 
+            excepturi eius nemo vel odio hic quam veniam.</div>
+    </div>
+    
+</body>
+</html>

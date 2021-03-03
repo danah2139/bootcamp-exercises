@@ -1,0 +1,43 @@
+.navbar {
+	width: 100vw;
+}
+
+.navbar li a {
+	padding: 5px 10px;
+	margin: 0 3px;
+	font-size: 18px;
+}
+
+#section-home {
+	height: auto;
+	padding-top: 60px;
+}
+
+#section-projects {
+	height: auto;
+}
+
+.title-header {
+	font-size: 16px;
+}
+
+.card {
+	font-size: 16px;
+}
+
+.links {
+	flex-direction: column;
+}
+
+#section-about .card {
+	font-size: 20px;
+}
+
+.flex-grid .column {
+	flex: 100%;
+	max-width: 100%;
+}
+
+#section-contact .header {
+	margin: 5px;
+}

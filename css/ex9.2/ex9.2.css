@@ -1,0 +1,22 @@
+
+/*because absolute positioned relative to the nearest positioned ancestor*/
+
+#outer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: darkcyan;
+    margin: 50px;
+    
+}
+#text-box{
+    z-index:1;
+    position: relative;
+}
+#inner {
+    width: 50px;
+    height: 50px;
+    background: lightgreen;
+    position: relative;
+    top: 10px;
+}

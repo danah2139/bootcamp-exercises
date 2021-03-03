@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12.3</title>
+    <style>
+        @media only screen and (max-width: 500px){
+            #aside{
+                display: none;           
+            }
+            #main{
+                
+            }
+
+        }
+        @media (min-width: 501px) and (max-width: 768px){
+            #aside{
+                max-width: 20%;
+                height: 20%;
+            }
+            #main{
+                max-width: 80%;
+                height: 100%;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1200px){
+            #aside{
+                max-width: 30%;
+                height: 30%;
+            }
+            #main{
+                max-width: 70%;
+                height: 100%;
+            }
+        }
+        @media(min-width: 1201px){
+            #aside{
+                max-width: 50%;
+                height: 100%;
+                
+            }
+            #main{
+                max-width: 50%;
+                height: 100%;
+            }
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            max-width:1500px;
+
+        }
+        div{
+            display: inline-block;
+        }
+        #aside{
+            float: left;
+            color: green;
+           
+        }
+        #main{
+            float: right;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nisi eligendi est aut, perferendis 
+        dignissimos ex totam doloremque explicabo fugiat?</div>
+    <div id="aside">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Vel fuga natus suscipit aspernatur eos inventore sit sequi rerum placeat reprehenderit!</div>
+    
+</body>
+</html>

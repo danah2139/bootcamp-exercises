@@ -1,0 +1,14 @@
+let li = document.querySelector('.start-here');
+li.textContent = 'main title';
+let subTitle = document.createElement('li');
+subTitle.textContent = 'sub title 4';
+let ul = li.nextElementSibling.firstElementChild;
+//console.log(ul);
+ul.lastElementChild.appendChild(subTitle);
+let mainUl = li.parentElement;
+mainUl.lastElementChild.remove();
+let title = mainUl.previousElementSibling.previousElementSibling;
+title.textContent = 'Master Of The Dom';
+p = mainUl.nextElementSibling;
+p.textContent = 'dana';
+//console.log();

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19.4</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: yellow;
+            text-align: center;
+
+        }
+        a{
+            text-decoration: none;
+            position: relative;
+            padding: 20px;
+        }
+        a::before{
+            content:"";
+            position: absolute;
+            height: 5px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: blue;
+            transform: scale(0);
+            transform-origin: left;
+            transition: all 0.5s;
+
+        }
+        a::after{
+            content: "";
+            height: 5px;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            background-color: blue;
+            position: absolute;
+            transform: scale(0);
+            transform-origin: right;
+            transition: all 0.5s;
+
+        }
+        a:hover::before,a:hover::after{
+            transform: scale(1);
+
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">link1</a></li>
+            <li><a href="#">link2</a></li>
+            <li><a href="#">link3</a></li>
+            <li><a href="#">link4</a></li>
+            <li><a href="#">link5</a></li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

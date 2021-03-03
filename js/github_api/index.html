@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				font-size: 1.5em;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-direction: column;
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+				width: 20vw;
+				height: 40vh;
+				border: 2px solid;
+			}
+			input {
+				font-size: 1em;
+			}
+
+			.card {
+				padding: 5px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				border: 2px solid;
+				margin-right: 20px;
+			}
+			a {
+				text-decoration: none;
+				font-size: 1em;
+				color: gray;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 10px;
+			}
+
+			img {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="form">
+			<label>Type github user name</label>
+			<input type="text" name="user-name" id="user-name" />
+			<input type="submit" value="Search" />
+		</form>
+		<div class="container"></div>
+		<script src="./index.js"></script>
+	</body>
+</html>

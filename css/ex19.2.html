@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19.2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .box{
+            background-color:plum;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        .box::after{
+            content: "";
+            position: absolute;
+            background-color:peru;
+            height: 200px;
+            width: 200px;
+            transition:all 2s ease-in-out;
+            transform: translate(-200px);
+
+        }
+        .box:hover::after{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(66, 46, 20);
+            transform: translate(0px);
+            z-index: 10;
+            
+        } 
+ 
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+</html>

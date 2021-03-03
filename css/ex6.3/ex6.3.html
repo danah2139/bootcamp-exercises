@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dana Cohen</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+			integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			media="screen and (max-width:500px)"
+			href="./mobile.css"
+		/>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="#section-home">Home</a></li>
+			<li><a href="#section-about">About</a></li>
+			<li><a href="#section-projects">Projects</a></li>
+			<li><a href="#section-contact">Contact</a></li>
+		</ul>
+		<section id="section-home">
+			<div class="header">
+				<div class="title-header">
+					<h1>Dana Cohen</h1>
+					<h2>Software Programmer</h2>
+				</div>
+				<div class="img">
+					<img src="./img/20190523_150122.jpg" alt="me" />
+				</div>
+			</div>
+			<div class="card">
+				<p>
+					<strong
+						>Creative . Self-learner . Eager to learn new technologies.</strong
+					>
+				</p>
+			</div>
+			<ul class="links">
+				<li class="card li_links">
+					<i class="fab fa-github fa-2x"></i
+					><a href="https://github.com/danah2139/">github</a>
+				</li>
+				<li class="card li_links">
+					<i class="fab fa-linkedin fa-2x"></i
+					><a href="https://www.linkedin.com/in/dana-cohen-5176b514b/"
+						>linkedin</a
+					>
+				</li>
+				<li class="card li_links">
+					<i class="fab fa-facebook fa-2x"></i
+					><a href="https://www.facebook.com/dana.cohen.96/">facebook</a>
+				</li>
+			</ul>
+			<a class="v-btn" href="#section-about"
+				><i class="fas fa-chevron-down"></i></i
+			></a>
+		</section>
+		<section id="section-about">
+			<div class="card">
+				<p>
+					Hi! Im web developer joniur , I sutdied bsc computer sciense and now to
+					improve my skills Im in Fullstuck's bootcamp . I love to code and to
+					have challenge ! also I love to dive , my dream is to code in the
+					beach with Mojito
+				</p>
+			</div>
+            <a href="./Dana Cohen  CV's  (2).pdf" target="_blank" class="btn-cv">view my cv</a>
+            <a class="v-btn" href="#section-projects"
+            ><i class="fas fa-chevron-down"></i></i
+        ></a>
+		</section>
+		<section id="section-projects" class="flex-grid">
+            <header class="title-header">
+                <h4>This is what I do</h4>
+                <h2>Projects</h2>
+              </header>
+              <div class="row">
+                <div class="column">
+                  <a class="card"
+                    href="./img/projects/dry-ridge-76802.herokuapp.com_.png"
+                    data-lightbox="cases"
+                    data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+                    dolore!"
+                  >
+                    <img src="./img/projects/dry-ridge-76802.herokuapp.com_.png" alt="" />
+                  </a>
+                  <a class="card"
+                    href="images/cases/cases2.jpg"
+                    data-lightbox="cases"
+                    data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+                    dolore!"
+                  >
+                    <img src="./img/projects/tesla.png" alt="" />
+                  </a>
+                </div>
+                <div class="column">
+                  <a class="card"
+                    href="https://fathomless-basin-92783.herokuapp.com/"
+                    data-lightbox="cases"
+                    data-title="feedback app - make survey"
+                  >
+                    <img src="./img/projects/feedback.png" alt="" />
+                  </a>
+                  <a class="card"
+                    href="https://dana-cohen.info"
+                    data-lightbox="cases"
+                    data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+                    dolore!"
+                  >
+                    <img src="./img/projects/dana-cohen.info_.png" alt="" />
+                  </a>
+                </div>
+              </div>
+              <a class="v-btn" href="#section-contact"
+              ><i class="fas fa-chevron-down"></i></i
+          ></a>
+        </section>
+		<section id="section-contact">
+            <header class="header">
+                <div class="title-header">
+                    <h4>please tell what U think</h4>
+                    <h2>Contact me</h2>
+                </div>
+                <i class="fas fa-laptop fa-2x"></i>
+            </header>
+			<form action="process.php">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" />
+				</div>
+				<div class="form-group">
+					<label for="message">Message</label>
+					<textarea name="message" id="message"></textarea>
+				</div>
+				<button type="submit" class="btn">Submit</button>
+			</form>
+		</section>
+	</body>
+</html>
