@@ -14,54 +14,48 @@ async function getData() {
 			throw 'not found';
 		}
 		const data = await response.json();
-		let imgData = data.Poster;
-		let title = data.Title;
-		let genere = data.Genre;
-		let year = data.Year;
-		let plot = data.Plot;
-		let director = data.Director;
-		let actors = data.Actors;
-		let ratings = data.Ratings;
-		displayCard(imgData, title, genere, year, plot, director, actors, ratings);
+		const movieObj = {
+			imgData :data.Poster,
+			title = data.Title,
+			genere = data.Genre,
+			year = data.Year,
+			plot = data.Plot,
+			director = data.Director,
+			actors = data.Actors,
+			ratings = data.Ratings,
+		};
+		
+		displayCard(movieObj);
 	} catch (e) {
 		console.log(e);
 	}
 }
 
-function displayCard(
-	imgData,
-	title,
-	genere,
-	year,
-	plot,
-	director,
-	actors,
-	ratings
-) {
+function displayCard(movieObj) {
 	card = document.createElement('div');
 	card.classList.add('card');
 	let img = document.createElement('img');
-	img.src = imgData;
+	img.src = movieObj.imgData;
 	card.appendChild(img);
 	let movieTitle = document.createElement('p');
-	movieTitle.textContent = title;
+	movieTitle.textContent = movieObj.title;
 	card.appendChild(movieTitle);
 	let genereMovie = document.createElement('p');
-	genereMovie.textContent = genere;
+	genereMovie.textContent = movieObj.genere;
 	card.appendChild(genereMovie);
 	let yearMovie = document.createElement('p');
-	yearMovie.textContent = year;
+	yearMovie.textContent = movieObj.year;
 	card.appendChild(yearMovie);
 	let plotMovie = document.createElement('p');
-	plotMovie.textContent = plot;
+	plotMovie.textContent = movieObj.plot;
 	card.appendChild(plotMovie);
 	let directorMovie = document.createElement('p');
-	directorMovie.textContent = director;
+	directorMovie.textContent = movieObj.director;
 	card.appendChild(directorMovie);
 	let actorsMovie = document.createElement('p');
-	actorsMovie.textContent = actors;
+	actorsMovie.textContent = movieObj.actors;
 	card.appendChild(actorsMovie);
-	ratings.forEach((rat) => {
+	movieObj.ratings.forEach((rat) => {
 		console.log(rat.Source);
 		if (rat.Source === 'Rotten Tomatoes') {
 			let ratingTomatos = document.createElement('p');
