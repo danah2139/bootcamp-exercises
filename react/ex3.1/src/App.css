@@ -1,0 +1,30 @@
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.purple {
+	background-color: purple;
+	height: 100px;
+	width: 200px;
+	margin: 5px;
+}
+
+.blue {
+	background-color: blue;
+	height: 400px;
+	width: 400px;
+}
+
+.green {
+	background-color: green;
+	height: 500px;
+	width: 500px;
+}
+.pink {
+	background-color: pink;
+	height: 300px;
+	width: 300px;
+	flex-direction: column;
+}
