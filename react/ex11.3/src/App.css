@@ -1,0 +1,43 @@
+.App {
+	text-align: center;
+	background-color: rgba(38, 28, 173, 0.8);
+	height: 100vh;
+	width: 100vw;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 20px;
+}
+
+.form-review {
+	border: 2px solid;
+	padding: 20px;
+}
+
+input,
+select {
+	width: 25vw;
+	height: 20px;
+	margin-bottom: 10px;
+}
+label {
+	color: white;
+}
+
+textarea {
+	width: 25vw;
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+.field {
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}

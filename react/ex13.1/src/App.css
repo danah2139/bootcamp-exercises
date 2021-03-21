@@ -1,0 +1,12 @@
+.names {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card {
+	border: 2px solid;
+	border-radius: 5px;
+	width: 200px;
+	text-align: center;
+}

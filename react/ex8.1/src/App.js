@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor() {
+		super();
+		this.state = { favoriteColor: 'orange' };
+		this.someIdRef = React.createRef();
+	}
+
+	componentDidMount() {
+		setTimeout(() => this.setState({ favoriteColor: 'blue' }), 1000);
+	}
+
+	componentDidUpdate() {
+		this.someIdRef.current.textContent = `The updated favorite color is ${this.state.favoriteColor}`;
+	}
+
+	render() {
+		return (
+			<div>
+				<h1>My favorite color is {this.state.favoriteColor}</h1>
+				<div id="someId" ref={this.someIdRef}></div>
+			</div>
+		);
+	}
 }
 
 export default App;
