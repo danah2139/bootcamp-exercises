@@ -1,25 +1,66 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import axios from 'axios';
+import SearchBar from './components/SearchBar';
+import Avatar from './components/Avatar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	state = {
+		avatars: null,
+	};
+	async componentDidMount() {
+		const response = await axios.get('https://randomuser.me/api/?results=10');
+		this.setState({
+			avatars: response.data.results.map((user) => {
+				return {
+					id: user.login.uuid,
+					name: user.name.first + user.name.last,
+					image: user.picture.large,
+					shouldShow: true,
+				};
+			}),
+		});
+	}
+
+	drawAvatars = (avatars) => {
+		return avatars.map((avatar) => {
+			return <Avatar avatar={avatar} />;
+		});
+	};
+
+	filterAvatars = (e) => {
+		const searchTerm = e.target.value.toLowerCase();
+		this.setState((prevState) => {
+			return {
+				avatars: prevState.avatars.map((avatar) => {
+					if (avatar.name.toLowerCase().includes(searchTerm)) {
+						return {
+							name: avatar.name,
+							image: avatar.image,
+							shouldShow: true,
+						};
+					} else {
+						return {
+							name: avatar.name,
+							image: avatar.image,
+							shouldShow: false,
+						};
+					}
+				}),
+			};
+		});
+	};
+	render() {
+		return (
+			<div>
+				<SearchBar filterAvatars={this.filterAvatars} />
+				{this.state.avatars &&
+					this.drawAvatars(
+						this.state.avatars.filter((avatar) => avatar.shouldShow)
+					)}
+			</div>
+		);
+	}
 }
 
 export default App;
