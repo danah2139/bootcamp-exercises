@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	valueRef = React.createRef();
+	copy = () => {
+		this.valueRef.current.select();
+		document.execCommand('copy');
+	};
+	render() {
+		return (
+			<div className="App">
+				<h2>what is the meaning of life?</h2>
+				<textarea cols="30" rows="10" ref={this.valueRef} />
+				<button onClick={this.copy}>copy</button>
+			</div>
+		);
+	}
 }
 
 export default App;
