@@ -5,12 +5,12 @@ import axios from 'axios';
 const App = () => {
 	const [term, setTerm] = useState('hooks');
 	const [results, setResults] = useState('');
-	useEffect(() => {
-		(async () => {
+	const [errorMessage, setErrorMessage] = useState('');
+	const fetchData = async () => {
+		try {
 			const { data } = await axios.get(
 				`https://hn.algolia.com/api/v1/search?query=${term}`
 			);
-			console.log(data);
 			setResults(
 				data.hits.map((el) => ({
 					title: el.title,
@@ -18,18 +18,30 @@ const App = () => {
 					link: el.url,
 				}))
 			);
-		})();
-	});
+		} catch (e) {
+			setErrorMessage(e.message);
+		}
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
 
 	const renderItems = () => {
-		if (!results.length) {
+		if (!results.length && !errorMessage) {
 			return <div>Loading...</div>;
+		} else if (!results.length) {
+			return <div>{errorMessage}</div>;
 		}
-		results.map((result) => (
+		return results.map((result) => (
 			<li>
-				<a href={result.url}>{result.title}</a>
+				<a href={result.link}>{result.title}</a>
 			</li>
 		));
+	};
+
+	const handleSearchTerm = () => {
+		fetchData();
 	};
 	return (
 		<div className="App">
@@ -42,6 +54,7 @@ const App = () => {
 					}}
 					value={term}
 				/>
+				<button onClick={handleSearchTerm}>Search</button>
 			</div>
 			<ul>{renderItems()}</ul>
 		</div>
