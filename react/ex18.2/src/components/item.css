@@ -1,0 +1,14 @@
+.item {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: rgb(155, 141, 141);
+	border: 2px solid;
+	color: whitesmoke;
+	cursor: pointer;
+}
+
+.complited-item {
+	background-color: green;
+	text-decoration: line-through;
+}
