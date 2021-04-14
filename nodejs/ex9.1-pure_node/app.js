@@ -13,6 +13,7 @@ server.listen(port, host, () => {
 
 server.on("request", (req, res) => {
   if (req.url === "/raw-html") {
+    res.writeHead(200, { "Content-Type": "text/html" });
     res.end(`<h1>Welcome</h1>`);
   } else if (req.url === "/users") {
     res.writeHead(200, {
