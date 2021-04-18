@@ -1,14 +1,21 @@
 {
-	  "scripts": {
-	  	  "start": "npm run dev",
-	  	  "server": "nodemon app.js",
-	  	  "client": "npm run start --prefix client",
-	  	  "dev": "concurrently \"npm run server\" \"npm run client\"",
-	      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-	  },
-	  "dependencies": {
-	  	  "concurrently": "^6.0.2",
-	  	  "cors": "^2.8.5",
-	  	  "express": "^4.17.1"
-	  }
+  "scripts": {
+    "start": "npm run dev",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "dependencies": {
+    "concurrently": "^6.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "name": "ex11.1-express_with_react",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
