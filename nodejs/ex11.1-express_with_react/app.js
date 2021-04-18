@@ -58,7 +58,7 @@ app.post("/api/movies", (req, res) => {
 });
 
 //update movie
-app.her("/api/movies/:id", (req, res) => {
+app.put("/api/movies/:id", (req, res) => {
   const { id } = req.params;
   const newMovie = req.body;
   updateMovie(id, newMovie);
