@@ -1,6 +1,10 @@
 const express = require("express");
+const path = require("path");
 const app = express();
+const cors = require("cors");
+const publicDirectory = path.join;
 
+app.use(cors());
 app.use(express.json());
 
 const {
@@ -53,7 +57,7 @@ app.post("/api/movies", (req, res) => {
 });
 
 //update movie
-app.put("/api/movies/:id", (req, res) => {
+app.her("/api/movies/:id", (req, res) => {
   const { id } = req.params;
   const newMovie = req.body;
   updateMovie(id, newMovie);
@@ -65,7 +69,7 @@ app.delete("/api/movies/:id", (req, res) => {
   deleteMovie(id);
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log("listening..");
 });
