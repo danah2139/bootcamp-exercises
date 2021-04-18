@@ -1,7 +1,14 @@
 import axios from "axios";
+let url;
+if (process.env.NODE_ENV === "development") {
+  url = "http://localhost:8000/api/movies";
+}
+if (process.env.NODE_ENV === "production") {
+  url = "api/movies";
+}
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/api/movies",
+  baseURL: url,
 });
 
 export default api;

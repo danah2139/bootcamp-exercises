@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const cors = require("cors");
-const publicDirectory = path.join;
+const publicDirectory = path.join(__dirname, "client/build");
+app.use(express.static(publicDirectory));
 
 app.use(cors());
 app.use(express.json());
