@@ -61,7 +61,9 @@ app.post("/api/movies", (req, res) => {
 app.put("/api/movies/:id", (req, res) => {
   const { id } = req.params;
   const newMovie = req.body;
+  console.log(newMovie);
   updateMovie(id, newMovie);
+  res.send("ok");
 });
 
 //delete movie

@@ -11,9 +11,13 @@ function App() {
   }, []);
 
   const handleSubmit = async () => {
-    await API.put("d5a4236b-75b3-4ca0-b8c7-37d013e2a239", {
-      title: value,
-    });
+    try {
+      await API.put("d5a4236b-75b3-4ca0-b8c7-37d013e2a239", {
+        title: value,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <div className="App">
