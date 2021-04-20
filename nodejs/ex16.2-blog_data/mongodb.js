@@ -11,58 +11,50 @@ MongoClient.connect(
       return console.log("unable to connect to database");
     }
     const db = client.db(databaseName);
-    db.collection("users").insertOne(
-      { _id: "dana@gmail.com", name: "dana", blogs: [], comments: [] },
+    const idUser1 = new ObjectID();
+    const idUser2 = new ObjectID();
+    const idPost1 = new ObjectID();
+    const idPost2 = new ObjectID();
+    const idComment1 = new ObjectID();
+    const idComment2 = new ObjectID();
+  
+
+    db.collection("users").insertMany(
+      [
+        { _id=idUser1,email: "dana@gmail.com", name: "dana", blogs: [{$ref:'posts',$id:idPost1}], comments: [{$ref:'comments',$id:idComment1}] },
+        { _id=idUser1,email: "erez@gmail.com", name: "erez", blogs: [{$ref:'posts',$id:idPost2}], comments: [{$ref:'comments',$id:idComment2}] },
+      ],
       (error, result) => {
         if (error) {
-          return console.log("unable to insert  user");
+          return console.log("unable to insert users");
         }
       }
     );
 
-    db.collection("users").insertOne(
-      { _id: "erez@gmail.com", name: "erez", blogs: [], comments: [] },
-      (error, result) => {
-        if (error) {
-          return console.log("unable to insert  user");
-        }
-      }
-    );
-    db.collection("posts").insertOne({
-      body: "new body!!!!!!!!!!!!",
-      title: "new title!",
-      autor: "erez@gmail.com",
-      comments: [],
-    });
+    db.collection("posts").insertMany([{
+      _id:idPost1,
+      body: "hi every one",
+      title: "hello!",
+      autor: {$ref:"users",$id:idUser1},
+      comments: [{$ref:'comments',$id:idComment1}],
+    },{
+        _id:idPost2,
+        body: "new body!!!!!!!!!!!!",
+        title: "new title!",
+        autor: {$ref:"users",$id:idUser2},
+        comments: [{$ref:'comments',$id:idComment2}],
+      }]);
 
-    db.collection("comments").insertOne({
-      body: "hiiiiiiiiiiiiiiiiiiiiiiiii bla bia",
-      autor: "erez@gmail.com",
-    });
+    db.collection("comments").insertMany([{
+      _id:idComment1,
+      body: "NICE WORK!",
+      autor: {$ref:"users",$id:idUser1},
+    },{
+        _id:idComment2,
+        body: "hiiiiiiiiiiiiiiiiiiiiiiiii bla bia",
+        autor: {$ref:"users",$id:idUser2},
+      }]);
 
-    db.collection("users").updateOne(
-      { _id: "dana@gmail.com" },
-      { $push: { posts: new mongodb.ObjectId("607e9f14e658e43054ef8ac1") } }
-    );
-    db.collection("users").updateOne(
-      { _id: "erez@gmail.com" },
-      { $push: { posts: new mongodb.ObjectId("607ea0a98af7182ef83ed963") } }
-    );
-    db.collection("users").updateOne(
-      { _id: "dana@gmail.com" },
-      { $push: { comments: new mongodb.ObjectId("607e9f14e658e43054ef8ac2") } }
-    );
-    db.collection("users").updateOne(
-      { _id: "erez@gmail.com" },
-      { $push: { comments: new mongodb.ObjectId("607ea0a98af7182ef83ed964") } }
-    );
-    db.collection("posts").updateOne(
-      { _id: new mongodb.ObjectId("607e9f14e658e43054ef8ac1") },
-      { $push: { comments: new mongodb.ObjectId("607e9f14e658e43054ef8ac2") } }
-    );
-    db.collection("posts").updateOne(
-      { _id: new mongodb.ObjectId("607ea0a98af7182ef83ed963") },
-      { $push: { comments: new mongodb.ObjectId("607ea0a98af7182ef83ed964") } }
-    );
+    
   }
 );
