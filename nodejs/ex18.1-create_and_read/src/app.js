@@ -40,7 +40,7 @@ app.get("/products/:id", async (req, res) => {
 });
 
 // get products that are active
-app.get("/products", async (req, res) => {
+app.get("/products/activeProducts", async (req, res) => {
   try {
     const result = await Product.find({ active: true });
     res.send(result);
