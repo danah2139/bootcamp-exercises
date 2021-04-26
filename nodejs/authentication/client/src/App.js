@@ -1,5 +1,6 @@
 import API from "./api/api";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   const [userNameInput, setUserNameInput] = useState("");
@@ -25,7 +26,6 @@ function App() {
         console.log(err);
       }
     }
-    console.log(result);
   };
 
   const logout = async () => {
